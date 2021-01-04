@@ -1,10 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
-  </body>
+	
+	<head>
+		<title> 嘻巴嘻巴叫你洗衣服 </title>
+		<link href="xiba.ico" rel="SHORTCUT ICON">
+		<link rel="stylesheet" href="./style.css" />
+		<meta charset="utf-8">	
+	</head>
+
+
+	<body>
+		<font face="微軟正黑體">
+			<div align="center" id = "data">
+				<h1>【碩齋】洗衣場右手邊第一台洗衣機</h1>
+    			
+				<h2> Washing Machine Status: </h2>
+				<p id="wms"><img src="loading.png" width = 45%/></p>
+				
+				<p id="TIME"> Loading </p>
+				<p><a href = https://yakode.github.io/10810-I2CN-Final/about>
+					<span style="background-color:#BA9F82">
+						- About us -
+					</span>
+				</a></p>
+			</div>
+		</font>
+
+
+		<div id = "table">
+			<table style="width:20%" border = "0" bgcolor = "white" align="right">
+  				<tr>
+    				<th>X</th>
+    				<th>Y</th> 
+    				<th>Z</th>
+  				</tr>
+ 				<tr align="center">
+					<td id = "acc_x"> x </td>
+					<td id = "acc_y"> y </td>
+					<td id = "acc_z"> z </td>
+				</tr>
+			</table>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/JavaScript">
+			var AccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhNjYzNDc0ZmE3ZDU5YmI2NzEyMGFmYjhmMzk4ODUxODllNjI0M2RjYzM0NDAzNzBhNjc4NzEyYjFhMWFhNGVmYTEwYTRjOTM3NTlmYjg2In0.eyJhdWQiOiIyIiwianRpIjoiNGE2NjM0NzRmYTdkNTliYjY3MTIwYWZiOGYzOTg4NTE4OWU2MjQzZGNjMzQ0MDM3MGE2Nzg3MTJiMWExYWE0ZWZhMTBhNGM5Mzc1OWZiODYiLCJpYXQiOjE1Nzc1MTQ1ODUsIm5iZiI6MTU3NzUxNDU4NSwiZXhwIjoxNjA5MTM2OTg1LCJzdWIiOiIyNTQiLCJzY29wZXMiOltdfQ.YiB0xdr9tqBXU11VGw9rW-QZm6x8SyFW1DCoVPptul1ojxdLEP73jjcopvOBlSZU7wYL7Kd_xrqZgfTcWkNugnUOO5MF-ltGBg3UnOFvJ9weElSdl13NtHPAz8PnzMAYW82KPDqn7mEn7tKr0FU6JmFRDqd5zWvRTdRlNs7QhcafVRFRT2ofl4yF_x5tYuie-XW6KGcwwRw0KIQ_e1J4p7P88EYmcS78d1FWyxZ26pPw6poDaeQyDXHDat3IxaXO2hHwLgDJ4kpr-cL7DqX1o9SLLYyEjvdlggItTb8zAcfx2YopqzEafR4Nfkbx9SNN4YcmzHvu75Vm6nio2K3F7k5BH0hFFBF9YJEEwOthjSVF3jqzK5ejBMAgwdkDSE87dVwIsDKxwX3crh9PB-9mtyWTZKwbG8YbhcyBRmB15h83tRO5WgwhmPkPjeC2Rp_Wf18EI54XLXWeS_5bjSAbUVOdNYr8FT-ppgBBV6t0YD5P71DYwQNBoEBPqM00yR_FZNQNrbN5adabObn3YTVZnD9Xr55NAST2l0Pf4GELmT4pX-3JE7uqQ2-hGIfzB-Iw2_Cbp_j2IuEnjbOJfHQKQ-Ik3Di910HjYxS0c_9XPQI4EJjHrfgItRQks8HFn3ukK7u62nioquPPSYTtsZlMhZ_Adcs4zRannu_ByTfWNGo";
+			$(document).ready(function getAPI() {
+				function getAPI() {
+					var macaddr = "?macaddr=" + "aad8b663";
+					var Today=new Date();
+					var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
+					var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
+					Today.setMinutes(Today.getMinutes()-1);
+					console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
+					var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
+					var date_filter = "&date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
+					//var data_array;
+					$.ajax({
+						type: "POST",
+						url: "https://campus.kits.tw/ICN_API" + macaddr + date_filter,
+						dataType: "json",
+						async: false,
+						success: function(response) {
+							console.log(response);
+							//data_array = response;
+							document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
+							if(response.length != 0){
+								var len = response.length;
+								var is_shake = -1;
+								for(i = 0; i < len; i++){
+									if(response[i]['acc_x'] != null || response[i]['acc_y'] != null || response[i]['acc_z'] != null){
+										is_shake = i;
+										break;
+									}
+								}
+		
+								if(is_shake != -1){
+									document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+									document.getElementById("acc_x").innerHTML = response[0]['acc_x'];
+									document.getElementById("acc_y").innerHTML = response[0]['acc_y'];
+									document.getElementById("acc_z").innerHTML = response[0]['acc_z'];
+								}else{
+									document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+									document.getElementById("acc_x").innerHTML = "NULL";
+									document.getElementById("acc_y").innerHTML = "NULL";
+									document.getElementById("acc_z").innerHTML = "NULL";
+								}
+		
+							} else {
+									document.getElementById("acc_x").innerHTML = "No data";
+									document.getElementById("acc_y").innerHTML = "No data";
+									document.getElementById("acc_z").innerHTML = "No data";
+									document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+							}
+							delete response;
+						},
+						headers: {
+							'Accept': 'application/json',
+							'Authorization': 'Bearer ' + AccessToken
+						},
+						error: function(jqXHR) {
+							//alert("Return status: " + jqXHR.status);
+							if(jqXHR.status == '200')
+								alert("API calling error: macaddr or url format error!");
+							else
+								alert("API is sleeping !");
+						}
+					})
+				}
+				setInterval(getAPI, 1000);
+			});
+		</script>
+
+	</body>
 </html>
+
+
