@@ -16,13 +16,6 @@ var settings = {
     "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
     "Content-type": "application/json"
   },
-  beforeSend : function(xhr){
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
-    xhr.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, PUT, OPTIONS");
-    xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    xhr.setRequestHeader("Content-type","application/json");
-    },
   "processData": false,
   "mimeType": "multipart/form-data",
   "contentType": false,
