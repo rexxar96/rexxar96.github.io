@@ -1,0 +1,16 @@
+body{
+	background: url("./bg.png") no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+
+#data{
+	width: 50%;
+	vertical-align: middle;
+	float: left;
+}
+
+#table{
+	width: 50%;
+	float: left;
+}
