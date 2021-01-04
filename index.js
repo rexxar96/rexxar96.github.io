@@ -4,7 +4,7 @@ form.append("email", "yowluenlim0824@gmail.com");
 form.append("password", "123456789");
 
 var settings = {
-  "url": "https://campus.kits.tw/api/get/data/aaa9f5f5?date_filter=2020-12-30 21:20:38 +-+ 2020-12-30 21:20:38",
+  "url": "https://cors-anywhere.herokuapp.com/"+ "https://campus.kits.tw/api/get/data/aaa9f5f5?date_filter=2020-12-30 21:20:38 +-+ 2020-12-30 21:20:38",
   "method": "POST",
   "timeout": 0,
   "headers": {
