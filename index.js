@@ -41,6 +41,7 @@ $(document).ready(function getAPI() {
                         break;
                     }
                 }
+                console.log("shake: " + is_shake);
 
                 if(is_shake != -1){
                     document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
