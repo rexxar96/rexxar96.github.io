@@ -5,7 +5,7 @@ form.append("password", "123456789");
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
-        var Today=new Date();
+        var Today = new Date();
         var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
         var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
         Today.setMinutes(Today.getMinutes()-1);
@@ -31,7 +31,37 @@ $(document).ready(function getAPI() {
           
         $.ajax(settings).done(function (response) {
             console.log(response);
+            document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
+            if(response.length != 0){
+                var len = response.length;
+                var is_shake = -1;
+                for(i = 0; i < len; i++){
+                    if(response[i]['acc_x'] != null || response[i]['acc_y'] != null || response[i]['acc_z'] != null){
+                        is_shake = i;
+                        break;
+                    }
+                }
+
+                if(is_shake != -1){
+                    document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+                    document.getElementById("acc_x").innerHTML = response[0]['acc_x'];
+                    document.getElementById("acc_y").innerHTML = response[0]['acc_y'];
+                    document.getElementById("acc_z").innerHTML = response[0]['acc_z'];
+                }else{
+                    document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+                    document.getElementById("acc_x").innerHTML = "NULL";
+                    document.getElementById("acc_y").innerHTML = "NULL";
+                    document.getElementById("acc_z").innerHTML = "NULL";
+                }
+
+            } else {
+                    document.getElementById("acc_x").innerHTML = "No data";
+                    document.getElementById("acc_y").innerHTML = "No data";
+                    document.getElementById("acc_z").innerHTML = "No data";
+                    document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+            }
         });
+
     }
     setInterval(getAPI, 10000);
 });
