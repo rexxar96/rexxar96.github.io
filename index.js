@@ -23,11 +23,11 @@ var cheat_data = [{
 function main_control(data,curDate,curTime){
     console.log(data);
     document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
-    if(data.length > 2){
+    if(data.length != 0){
         var len = data.length;
         var is_shake = -1;
         console.log(len);
-        console.log(data.acc_x);
+        console.log(data[0].acc_x);
         for(i = 0; i < len; i++){
             if(data[i]['acc_x'] != null || data[i]['acc_y'] != null || data[i]['acc_z'] != null){
                 is_shake = i;
