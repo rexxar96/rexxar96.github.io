@@ -63,7 +63,7 @@ function main_control(data){
     }
 }
 
-main_control(cheat_data);
+//main_control(cheat_data);
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -97,5 +97,5 @@ $(document).ready(function getAPI() {
         });
 
     }
-    //setInterval(getAPI, 120000);
+    setInterval(getAPI, 120000);
 });
