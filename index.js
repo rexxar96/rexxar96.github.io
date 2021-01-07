@@ -11,8 +11,8 @@ $(document).ready(function getAPI() {
         Today.setMinutes(Today.getMinutes()-1);
         console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
         var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
-        var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
-        //var date_filter = "?date_filter=" + "2020-12-30 21:20:38 +-+ 2020-12-30 21:20:38";
+        //var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
+        var date_filter = "?date_filter=" + "2020-12-30 21:20:38 +-+ 2020-12-30 21:20:38";
         console.log(macaddr);
         console.log(date_filter);
         var settings = {
