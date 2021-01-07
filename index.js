@@ -1,6 +1,14 @@
 var form = new FormData();
 form.append("email", "yowluenlim0824@gmail.com");
 form.append("password", "123456789");
+
+var Today = new Date();
+var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
+var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
+Today.setMinutes(Today.getMinutes()-2);
+console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
+var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
+
 var cheat_data = [{
     "id": 6950426,
     "macaddr": "aaa9f5f5",
