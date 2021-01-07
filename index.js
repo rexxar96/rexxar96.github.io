@@ -22,6 +22,8 @@ var cheat_data = [{
 
 function main_control(data,curDate,curTime){
     console.log(data);
+    var obj = jQuery.parseJson(data);
+    console.log(obj);
     document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
     if(data.length > 2){
         var len = data.length;
