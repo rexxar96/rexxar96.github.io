@@ -63,7 +63,7 @@ function main_control(data){
     }
 }
 
-window.onload = main_control(cheat_data);
+main_control(cheat_data);
 
 $(document).ready(function getAPI() {
     function getAPI(){
