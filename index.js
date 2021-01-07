@@ -56,7 +56,7 @@ function main_control(data,curDate,curTime){
     }
 }
 
-//main_control(cheat_data);
+main_control(cheat_data);
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -87,10 +87,10 @@ $(document).ready(function getAPI() {
           
         $.ajax(settings).done(function (response) {
             var obj = eval(response);
-            console.log(obj);
-            main_control(obj,curDate,curTime);
+            //console.log(obj);
+            //main_control(obj,curDate,curTime);
         });
 
     }
-    setInterval(getAPI, 120000);
+    setInterval(getAPI, 60000);
 });
