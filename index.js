@@ -5,6 +5,7 @@ form.append("password", "123456789");
 var Today = new Date();
 var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
 var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
+var times_data_appear = 0;
 
 var cheat_data = [{
     "id": 6950426,
@@ -29,30 +30,37 @@ function main_control(data,curDate,curTime){
     document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
     if(data.length != 0){
         var len = data.length;
-        var is_shake = -1;
         console.log(len);
         console.log(data[0].acc_x);
-        for(i = 0; i < len; i++){
+        /*for(i = 0; i < len; i++){
             if(data[i]['acc_x'] != null || data[i]['acc_y'] != null || data[i]['acc_z'] != null){
                 is_shake = i;
                 break;
             }
+        }*/
+        if(data[0]['acc_x'] != null || data[0]['acc_y'] != null || data[0]['acc_z'] != null){
+            times_data_appear++;
         }
-        console.log("shake: " + is_shake);
+        console.log("times_data: " + times_data_appear);
 
-        if(is_shake != -1){
+        if(times_data_appear != 0){
             document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
             document.getElementById("acc_x").innerHTML = data[0]['acc_x'];
             document.getElementById("acc_y").innerHTML = data[0]['acc_y'];
             document.getElementById("acc_z").innerHTML = data[0]['acc_z'];
-        }else{
+        }
+        else{
             document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
             document.getElementById("acc_x").innerHTML = "NULL";
             document.getElementById("acc_y").innerHTML = "NULL";
             document.getElementById("acc_z").innerHTML = "NULL";
         }
-
-    } else {
+        
+        if(times_data_appear >= 2){
+            times_data_appear = 0;
+        }
+    } 
+    else {
             document.getElementById("acc_x").innerHTML = "No data";
             document.getElementById("acc_y").innerHTML = "No data";
             document.getElementById("acc_z").innerHTML = "No data";
@@ -65,7 +73,7 @@ main_control(cheat_data,curDate,curTime);
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
-        Today.setMinutes(Today.getMinutes()-2);
+        Today.setMinutes(Today.getMinutes() - 2.5);
         console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
         var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
         var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
