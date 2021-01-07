@@ -73,7 +73,7 @@ function main_control(data,curDate,curTime){
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
-        Today.setMinutes(Today.getMinutes() - 2.5);
+        Today.setMinutes(Today.getMinutes() - 3);
         console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
         var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
         var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
