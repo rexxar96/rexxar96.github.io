@@ -83,7 +83,7 @@ $(document).ready(function getAPI() {
             "mimeType": "multipart/form-data",
             "contentType": false,
             "data": form,
-            "datatype" : 'json'
+            datatype : 'json'
         };
           
         $.ajax(settings).done(function (response) {
