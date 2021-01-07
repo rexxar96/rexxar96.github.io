@@ -87,9 +87,9 @@ $(document).ready(function getAPI() {
         };
           
         $.ajax(settings).done(function (response) {
-            var obj = jQuery.Json.parse(response);
-            console.log(obj);
-            main_control(obj,curDate,curTime);
+            //var obj = jQuery.Json.parse(response);
+            console.log(response);
+            main_control(response,curDate,curTime);
         });
 
     }
