@@ -1,6 +1,61 @@
 var form = new FormData();
 form.append("email", "yowluenlim0824@gmail.com");
 form.append("password", "123456789");
+var cheat_data = [{
+    "id": 6950426,
+    "macaddr": "aaa9f5f5",
+    "data": null,
+    "lat": null,
+    "lng": null,
+    "created_at": "2020-12-30 21:20:38",
+    "updated_at": "2020-12-30 21:20:38",
+    "temperature": null,
+    "humidity": null,
+    "barometer": null,
+    "acc_x": "0.015",
+    "acc_y": "0.173",
+    "acc_z": "-0.125",
+    "frame_cnt": 555,
+    "snr": -17   
+}];
+
+function main_control(data){
+    console.log(data);
+    document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
+    if(data.length > 2){
+        var len = data.length;
+        var is_shake = -1;
+        console.log(len);
+        console.log(data[0]['acc_x']);
+        for(i = 0; i < len; i++){
+            if(data[i]['acc_x'] != null || data[i]['acc_y'] != null || data[i]['acc_z'] != null){
+                is_shake = i;
+                break;
+            }
+        }
+        console.log("shake: " + is_shake);
+
+        if(is_shake != -1){
+            document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+            document.getElementById("acc_x").innerHTML = data[0]['acc_x'];
+            document.getElementById("acc_y").innerHTML = data[0]['acc_y'];
+            document.getElementById("acc_z").innerHTML = data[0]['acc_z'];
+        }else{
+            document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+            document.getElementById("acc_x").innerHTML = "NULL";
+            document.getElementById("acc_y").innerHTML = "NULL";
+            document.getElementById("acc_z").innerHTML = "NULL";
+        }
+
+    } else {
+            document.getElementById("acc_x").innerHTML = "No data";
+            document.getElementById("acc_y").innerHTML = "No data";
+            document.getElementById("acc_z").innerHTML = "No data";
+            document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
+    }
+}
+
+window.onload = main_control(cheat_data);
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -30,41 +85,9 @@ $(document).ready(function getAPI() {
         };
           
         $.ajax(settings).done(function (response) {
-            console.log(response);
-            document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
-            if(response.length > 2){
-                var len = response.length;
-                var is_shake = -1;
-                console.log(len);
-                console.log(response[0]['acc_x']);
-                for(i = 0; i < len; i++){
-                    if(response[i]['acc_x'] != null || response[i]['acc_y'] != null || response[i]['acc_z'] != null){
-                        is_shake = i;
-                        break;
-                    }
-                }
-                console.log("shake: " + is_shake);
-
-                if(is_shake != -1){
-                    document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
-                    document.getElementById("acc_x").innerHTML = response[0]['acc_x'];
-                    document.getElementById("acc_y").innerHTML = response[0]['acc_y'];
-                    document.getElementById("acc_z").innerHTML = response[0]['acc_z'];
-                }else{
-                    document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
-                    document.getElementById("acc_x").innerHTML = "NULL";
-                    document.getElementById("acc_y").innerHTML = "NULL";
-                    document.getElementById("acc_z").innerHTML = "NULL";
-                }
-
-            } else {
-                    document.getElementById("acc_x").innerHTML = "No data";
-                    document.getElementById("acc_y").innerHTML = "No data";
-                    document.getElementById("acc_z").innerHTML = "No data";
-                    document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
-            }
+            main_control(response);
         });
 
     }
-    setInterval(getAPI, 120000);
+    //setInterval(getAPI, 120000);
 });
