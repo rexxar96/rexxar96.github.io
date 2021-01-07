@@ -82,11 +82,12 @@ $(document).ready(function getAPI() {
             "processData": false,
             "mimeType": "multipart/form-data",
             "contentType": false,
-            "data": form
+            "data": form,
+            "datatype" : 'json'
         };
           
         $.ajax(settings).done(function (response) {
-            var obj = jQuery.parseJson(response);
+            var obj = jQuery.Json.parse(response);
             console.log(obj);
             main_control(obj,curDate,curTime);
         });
