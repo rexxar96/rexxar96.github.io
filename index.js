@@ -22,8 +22,6 @@ var cheat_data = [{
 
 function main_control(data,curDate,curTime){
     console.log(data);
-    var obj = jQuery.parseJson(data);
-    console.log(obj);
     document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
     if(data.length > 2){
         var len = data.length;
@@ -88,7 +86,9 @@ $(document).ready(function getAPI() {
         };
           
         $.ajax(settings).done(function (response) {
-            main_control(response,curDate,curTime);
+            var obj = jQuery.parseJson(response);
+            console.log(obj);
+            main_control(obj,curDate,curTime);
         });
 
     }
