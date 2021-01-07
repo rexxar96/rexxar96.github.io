@@ -55,7 +55,7 @@ function main_control(data,curDate,curTime){
             document.getElementById("acc_y").innerHTML = "NULL";
             document.getElementById("acc_z").innerHTML = "NULL";
         }
-        
+
         if(times_data_appear >= 2){
             times_data_appear = 0;
         }
@@ -68,7 +68,7 @@ function main_control(data,curDate,curTime){
     }
 }
 
-main_control(cheat_data,curDate,curTime);
+//main_control(cheat_data,curDate,curTime);
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -96,8 +96,8 @@ $(document).ready(function getAPI() {
           
         $.ajax(settings).done(function (response) {
             var obj = eval(response);
-            //console.log(obj);
-            //main_control(obj,curDate,curTime);
+            console.log(obj);
+            main_control(obj,curDate,curTime);
         });
 
     }
