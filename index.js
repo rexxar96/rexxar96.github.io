@@ -32,7 +32,7 @@ $(document).ready(function getAPI() {
         $.ajax(settings).done(function (response) {
             console.log(response);
             document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
-            if(response.length != 0){
+            if(response.length > 2){
                 var len = response.length;
                 var is_shake = -1;
                 console.log(len);
