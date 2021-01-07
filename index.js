@@ -37,7 +37,7 @@ $(document).ready(function getAPI() {
                 var len = response.length;
                 var is_shake = -1;
                 console.log(len);
-                console.log(response.data);
+                //console.log(response.data);
                 for(i = 0; i < len; i++){
                     if(response[i]['acc_x'] != null || response[i]['acc_y'] != null || response[i]['acc_z'] != null){
                         is_shake = i;
