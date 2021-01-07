@@ -31,14 +31,13 @@ $(document).ready(function getAPI() {
           
         $.ajax(settings).done(function (response) {
             console.log(response);
-            var obj = jQuery.parseJSON(response);
 
             document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
             if(response.length > 2){
                 var len = response.length;
                 var is_shake = -1;
                 console.log(len);
-                console.log(obj.acc_x);
+                console.log(response.data);
                 for(i = 0; i < len; i++){
                     if(response[i]['acc_x'] != null || response[i]['acc_y'] != null || response[i]['acc_z'] != null){
                         is_shake = i;
