@@ -86,7 +86,7 @@ $(document).ready(function getAPI() {
         };
           
         $.ajax(settings).done(function (response) {
-            var obj = JSON.stringify(response);
+            var obj = eval(response);
             console.log(obj);
             main_control(obj,curDate,curTime);
         });
