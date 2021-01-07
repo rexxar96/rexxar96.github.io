@@ -27,7 +27,7 @@ function main_control(data,curDate,curTime){
         var len = data.length;
         var is_shake = -1;
         console.log(len);
-        console.log(data[0]['acc_x']);
+        console.log(data.acc_x);
         for(i = 0; i < len; i++){
             if(data[i]['acc_x'] != null || data[i]['acc_y'] != null || data[i]['acc_z'] != null){
                 is_shake = i;
@@ -82,14 +82,13 @@ $(document).ready(function getAPI() {
             "processData": false,
             "mimeType": "multipart/form-data",
             "contentType": false,
-            "data": form,
-            datatype : 'json'
+            "data": form
         };
           
         $.ajax(settings).done(function (response) {
-            //var obj = jQuery.Json.parse(response);
-            console.log(response);
-            main_control(response,curDate,curTime);
+            var obj = JSON.stringify(response);
+            console.log(obj);
+            main_control(obj,curDate,curTime);
         });
 
     }
