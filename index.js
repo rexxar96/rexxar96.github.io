@@ -2,13 +2,6 @@ var form = new FormData();
 form.append("email", "yowluenlim0824@gmail.com");
 form.append("password", "123456789");
 
-var Today = new Date();
-var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
-var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
-Today.setMinutes(Today.getMinutes()-2);
-console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
-var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
-
 var cheat_data = [{
     "id": 6950426,
     "macaddr": "aaa9f5f5",
@@ -27,7 +20,7 @@ var cheat_data = [{
     "snr": -17   
 }];
 
-function main_control(data){
+function main_control(data,curDate,curTime){
     console.log(data);
     document.getElementById("TIME").innerHTML = "資料更新時間: " + curDate + " " + curTime;
     if(data.length > 2){
@@ -93,7 +86,7 @@ $(document).ready(function getAPI() {
         };
           
         $.ajax(settings).done(function (response) {
-            main_control(response);
+            main_control(response,curDate,curTime);
         });
 
     }
