@@ -131,7 +131,7 @@ function main_control2(data,curDate,curTime){
 }
 
 main_control(cheat_data,curDate,curTime);
-main_control2(cheat_data2,curDate,curTime);
+//main_control2(cheat_data2,curDate,curTime);
 result_control();
 
 $(document).ready(function getAPI() {
