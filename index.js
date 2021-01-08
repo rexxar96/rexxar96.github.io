@@ -140,7 +140,7 @@ function main_control2(data,curDate,curTime){
 //main_control(cheat_data,curDate,curTime);
 //main_control2(cheat_data2,curDate,curTime);
 //result_control();
-var id = window.setInterval(updatepicture, 60000);
+var id = window.setInterval(result_control, 60000);
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
@@ -194,9 +194,6 @@ $(document).ready(function getAPI() {
             console.log(obj);
             main_control2(obj,curDate,curTime);
         });
-    }
-    function updatepicture(){
-        result_control();
     }
     setInterval(getAPI, 180000);
 });
