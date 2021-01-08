@@ -45,6 +45,7 @@ var cheat_data2 = [{
 }];
 
 function result_control(){
+    console.log("update picture");
     if(sensor1_getData == true){
         if(sensor2_getData == true){// both are true
             document.getElementById("wms").innerHTML = "<img src=\"both are true.png\" width = 100%/>";
@@ -193,7 +194,7 @@ $(document).ready(function getAPI() {
             console.log(obj);
             main_control2(obj,curDate,curTime);
         });
-        result_control();
     }
     setInterval(getAPI, 180000);
+    setInterval(result_control(), 60000);
 });
