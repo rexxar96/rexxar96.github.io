@@ -47,7 +47,7 @@ var cheat_data2 = [{
 function result_control(){
     if(sensor1_getData == true){
         if(sensor2_getData == true){// both are true
-            document.getElementById("wms").innerHTML = "<img src=\"both are true.png\">";
+            document.getElementById("wms").innerHTML = "<img src=\"both are true.png\" width = 45%/>";
             
         }
         else{ //sensor1 is true
