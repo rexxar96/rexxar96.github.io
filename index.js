@@ -51,15 +51,15 @@ function result_control(){
             
         }
         else{ //sensor1 is true
-            document.getElementById("wms").innerHTML = "<img src=\"sensor1 is true.png\" width = 45%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"sensor1 is true.png\" width = 100%/>";
         }
     }
     else {
         if(sensor2_getData == true){ //sensor2 is true
-            document.getElementById("wms").innerHTML = "<img src=\"sensor2 is true.png\" width = 45%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"sensor2 is true.png\" width = 100%/>";
         }
         else{ //both are false
-            document.getElementById("wms").innerHTML = "<img src=\"both are false.png\" width = 45%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"both are false.png\" width = 100%/>";
         }
     }
 }
@@ -130,9 +130,9 @@ function main_control2(data,curDate,curTime){
     }
 }
 
-main_control(cheat_data,curDate,curTime);
-main_control2(cheat_data2,curDate,curTime);
-result_control();
+//main_control(cheat_data,curDate,curTime);
+//main_control2(cheat_data2,curDate,curTime);
+//result_control();
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -189,5 +189,5 @@ $(document).ready(function getAPI() {
         });
         result_control();
     }
-    //setInterval(getAPI, 180000);
+    setInterval(getAPI, 180000);
 });
