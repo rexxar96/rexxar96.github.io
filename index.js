@@ -47,19 +47,19 @@ var cheat_data2 = [{
 function result_control(){
     if(sensor1_getData == true){
         if(sensor2_getData == true){// both are true
-            document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"both are true.png\" width = 45%/>";
             
         }
         else{ //sensor1 is true
-            
+            document.getElementById("wms").innerHTML = "<img src=\"sensor1 is true.png\" width = 45%/>";
         }
     }
     else {
         if(sensor2_getData == true){ //sensor2 is true
-
+            document.getElementById("wms").innerHTML = "<img src=\"sensor2 is true.png\" width = 45%/>";
         }
         else{ //both are false
-
+            document.getElementById("wms").innerHTML = "<img src=\"both are false.png\" width = 45%/>";
         }
     }
 }
@@ -112,25 +112,20 @@ function main_control2(data,curDate,curTime){
         console.log("sensor1_getData " + sensor2_getData);
 
         if(sensor2_getData != false){
-            document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
         }
         else{
             if(sensor2_getData == true){
                 sensor2_getData = false;
-                document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
             }
             else{
-                document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
             }
         }
     } 
     else {
         if(sensor2_getData == true){
             sensor2_getData = false;
-            document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
         }
         else{
-            document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
         }
     }
 }
