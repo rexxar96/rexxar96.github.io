@@ -132,6 +132,7 @@ function main_control2(data,curDate,curTime){
 
 main_control(cheat_data,curDate,curTime);
 main_control2(cheat_data2,curDate,curTime);
+result_control();
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -177,14 +178,14 @@ $(document).ready(function getAPI() {
           
         $.ajax(settings).done(function (response) {
             var obj = eval(response);
-            console.log(obj);
-            main_control(obj,curDate,curTime);
+            //console.log(obj);
+            //main_control(obj,curDate,curTime);
         });
 
         $.ajax(settings2).done(function (response) {
             var obj = eval(response);
-            console.log(obj);
-            main_control2(obj,curDate,curTime);
+            //console.log(obj);
+            //main_control2(obj,curDate,curTime);
         });
         result_control();
     }
