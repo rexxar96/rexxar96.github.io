@@ -112,7 +112,7 @@ function main_control2(data,curDate,curTime){
                 break;
             }
         }
-        console.log("sensor1_getData " + sensor2_getData);
+        console.log("sensor2_getData " + sensor2_getData);
 
         if(sensor2_getData != false){
         }
