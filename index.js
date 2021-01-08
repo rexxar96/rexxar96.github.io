@@ -70,8 +70,11 @@ function main_control(data,curDate,curTime){
         var len = data.length;
         console.log(len);
         console.log(data[0].acc_x);
-        if(data[0]['acc_x'] != null || data[0]['acc_y'] != null || data[0]['acc_z'] != null){
-            sensor1_getData = true;
+        for(let i=0;i<len;i++){
+            if(data[0]['acc_x'] != null || data[0]['acc_y'] != null || data[0]['acc_z'] != null){
+                sensor1_getData = true;
+                break;
+            }
         }
         console.log("sensor1_getData " + sensor1_getData);
 
