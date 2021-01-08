@@ -196,5 +196,5 @@ $(document).ready(function getAPI() {
         });
     }
     setInterval(getAPI, 180000);
-    setInterval(result_control(), 60000);
+    setInterval(result_control, 60000);
 });
