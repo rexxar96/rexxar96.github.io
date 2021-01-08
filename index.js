@@ -130,9 +130,9 @@ function main_control2(data,curDate,curTime){
     }
 }
 
-//main_control(cheat_data,curDate,curTime);
-//main_control2(cheat_data2,curDate,curTime);
-//result_control();
+main_control(cheat_data,curDate,curTime);
+main_control2(cheat_data2,curDate,curTime);
+result_control();
 
 $(document).ready(function getAPI() {
     function getAPI(){
@@ -189,5 +189,5 @@ $(document).ready(function getAPI() {
         });
         result_control();
     }
-    setInterval(getAPI, 180000);
+    //setInterval(getAPI, 180000);
 });
