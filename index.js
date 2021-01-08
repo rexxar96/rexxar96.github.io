@@ -195,6 +195,9 @@ $(document).ready(function getAPI() {
             main_control2(obj,curDate,curTime);
         });
     }
+    function updatepicture(){
+        result_control();
+    }
     setInterval(getAPI, 180000);
-    setInterval(result_control, 60000);
+    setInterval(updatepicture, 60000);
 });
