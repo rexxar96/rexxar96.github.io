@@ -51,12 +51,12 @@ function result_control(){
             
         }
         else{ //sensor1 is true
-            document.getElementById("wms").innerHTML = "<img src=\"sensor1 is true.png\" width = 100%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"sensor2 is true.png\" width = 100%/>";
         }
     }
     else {
         if(sensor2_getData == true){ //sensor2 is true
-            document.getElementById("wms").innerHTML = "<img src=\"sensor2 is true.png\" width = 100%/>";
+            document.getElementById("wms").innerHTML = "<img src=\"sensor1 is true.png\" width = 100%/>";
         }
         else{ //both are false
             document.getElementById("wms").innerHTML = "<img src=\"both are false.png\" width = 100%/>";
@@ -106,8 +106,11 @@ function main_control2(data,curDate,curTime){
         var len = data.length;
         console.log(len);
         console.log(data[0].acc_x);
-        if(data[0]['acc_x'] != null || data[0]['acc_y'] != null || data[0]['acc_z'] != null){
-            sensor2_getData = true;
+        for(let i=0;i<len;i++){
+            if(data[0]['acc_x'] != null || data[0]['acc_y'] != null || data[0]['acc_z'] != null){
+                sensor2_getData = true;
+                break;
+            }
         }
         console.log("sensor1_getData " + sensor2_getData);
 
