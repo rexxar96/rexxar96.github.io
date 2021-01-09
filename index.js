@@ -7,6 +7,8 @@ var curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate
 var curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
 var sensor1_getData = false;
 var sensor2_getData = false;
+var sensor1_timesgetData = 0;
+var sensor2_timesgetData = 0;
 
 var cheat_data = [{
     "id": 6950426,
@@ -80,25 +82,32 @@ function main_control(data,curDate,curTime){
         console.log("sensor1_getData " + sensor1_getData);
 
         if(sensor1_getData != false){
-            //document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
         }
         else{
             if(sensor1_getData == true){
-                sensor1_getData = false;
-                //document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+                if(sensor1_timesgetData == 1){
+                    sensor1_getData = false;
+                    sensor1_timesgetData = 0;
+                }
+                else {
+                    sensor1_timesgetData = 1;
+                }
             }
             else{
-                //document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
             }
         }
     } 
     else {
         if(sensor1_getData == true){
-            sensor1_getData = false;
-            //document.getElementById("wms").innerHTML = "<img src=\"working.gif\" width = 45%/>";
+            if(sensor1_timesgetData == 1){
+                sensor1_getData = false;
+                sensor1_timesgetData = 0;
+            }
+            else {
+                sensor1_timesgetData = 1;
+            }
         }
         else{
-            //document.getElementById("wms").innerHTML = "<img src=\"idle.gif\" width = 45%/>";
         }
     }
 }
@@ -122,7 +131,13 @@ function main_control2(data,curDate,curTime){
         }
         else{
             if(sensor2_getData == true){
-                sensor2_getData = false;
+                if(sensor2_timesgetData == 1){
+                    sensor2_getData = false;
+                    sensor2_timesgetData = 0;
+                }
+                else {
+                    sensor2_timesgetData = 1;
+                }
             }
             else{
             }
@@ -130,7 +145,13 @@ function main_control2(data,curDate,curTime){
     } 
     else {
         if(sensor2_getData == true){
-            sensor2_getData = false;
+            if(sensor2_timesgetData == 1){
+                sensor2_getData = false;
+                sensor2_timesgetData = 0;
+            }
+            else {
+                sensor2_timesgetData = 1;
+            }
         }
         else{
         }
@@ -140,7 +161,7 @@ function main_control2(data,curDate,curTime){
 //main_control(cheat_data,curDate,curTime);
 //main_control2(cheat_data2,curDate,curTime);
 //result_control();
-var id = window.setInterval(result_control, 60000);
+var id = window.setInterval(result_control, 30000);
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
