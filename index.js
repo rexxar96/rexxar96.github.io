@@ -163,7 +163,7 @@ function main_control2(data,curDate,curTime){
 //main_control(cheat_data,curDate,curTime);
 //main_control2(cheat_data2,curDate,curTime);
 //result_control();
-var id = window.setInterval(result_control, 30000);
+var id = window.setInterval(result_control, 10000);
 $(document).ready(function getAPI() {
     function getAPI(){
         var macaddr = "aaa9f5f5";
@@ -171,7 +171,7 @@ $(document).ready(function getAPI() {
         Today = new Date();
         curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
         curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
-        Today.setMinutes(Today.getMinutes() - 3);
+        Today.setMinutes(Today.getMinutes() - 2);
         console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
         var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
         var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
@@ -218,5 +218,5 @@ $(document).ready(function getAPI() {
             main_control2(obj,curDate,curTime);
         });
     }
-    setInterval(getAPI, 180000);
+    setInterval(getAPI, 120000);
 });
