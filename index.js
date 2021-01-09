@@ -79,7 +79,6 @@ function main_control(data,curDate,curTime){
                 break;
             }
         }
-        console.log("sensor1_getData " + sensor1_getData);
 
         if(sensor1_getData != false){
         }
@@ -110,6 +109,7 @@ function main_control(data,curDate,curTime){
         else{
         }
     }
+    console.log("sensor1_getData " + sensor1_getData);
 }
 
 function main_control2(data,curDate,curTime){
@@ -125,7 +125,6 @@ function main_control2(data,curDate,curTime){
                 break;
             }
         }
-        console.log("sensor2_getData " + sensor2_getData);
 
         if(sensor2_getData != false){
         }
@@ -156,6 +155,7 @@ function main_control2(data,curDate,curTime){
         else{
         }
     }
+    console.log("sensor2_getData " + sensor2_getData);
 }
 
 //main_control(cheat_data,curDate,curTime);
