@@ -81,6 +81,7 @@ function main_control(data,curDate,curTime){
         }
 
         if(sensor1_getData != false){
+            sensor1_timesgetData = 0;
         }
         else{
             if(sensor1_getData == true){
@@ -127,6 +128,7 @@ function main_control2(data,curDate,curTime){
         }
 
         if(sensor2_getData != false){
+            sensor2_timesgetData = 0;
         }
         else{
             if(sensor2_getData == true){
