@@ -171,7 +171,7 @@ $(document).ready(function getAPI() {
         Today = new Date();
         curDate = Today.getFullYear() +"-"+ (Today.getMonth()+1) +"-"+ Today.getDate();
         curTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
-        Today.setMinutes(Today.getMinutes() - 2);
+        Today.setMinutes(Today.getMinutes() - 1);
         console.log(`realTime = ${Today.getHours()}:${Today.getMinutes()}`)
         var pastTime = Today.getHours() + ":" + Today.getMinutes() + ":" + Today.getSeconds();
         var date_filter = "?date_filter=" + curDate + " " + pastTime + "+-+" + curDate + " " + curTime;
@@ -218,5 +218,5 @@ $(document).ready(function getAPI() {
             main_control2(obj,curDate,curTime);
         });
     }
-    setInterval(getAPI, 120000);
+    setInterval(getAPI, 60000);
 });
